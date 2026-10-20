@@ -103,6 +103,28 @@ header{position:sticky;top:0;z-index:50;background:rgba(255,250,240,.85);backdro
 @media(hover:none){.g-item .cap{transform:none;opacity:1;font-size:.8rem;padding:18px 8px 7px}}
 @media(max-width:480px){.gallery{grid-template-columns:repeat(2,1fr);gap:10px}}
 
+/* house tour */
+.tour-card{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:28px;align-items:center;background:var(--butter);border-radius:var(--r);padding:24px;box-shadow:var(--sh);position:relative;overflow:hidden}
+.tour-card::before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:var(--honey);right:-80px;top:-100px;opacity:.7}
+.tour-card>*{position:relative}
+.tour-thumb{display:block;position:relative;aspect-ratio:9/16;max-height:480px;width:100%;border-radius:var(--r);overflow:hidden;background:var(--ink) center/cover no-repeat;box-shadow:0 14px 34px rgba(58,42,11,.28);transition:transform .4s}
+.tour-thumb:hover{transform:translateY(-6px) rotate(-1deg)}
+.tour-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.tour-thumb:hover img{transform:scale(1.06)}
+.tour-thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(58,42,11,.55))}
+.play{position:absolute;left:50%;top:50%;z-index:2;width:78px;height:78px;margin:-39px 0 0 -39px;border-radius:50%;background:var(--sun);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.play::before{content:"";position:absolute;inset:0;border-radius:50%;border:3px solid var(--sun);animation:ring 2s ease-out infinite}
+.play svg{width:34px;height:34px;fill:var(--ink);margin-left:4px}
+.tour-info h3{font-family:var(--serif);font-size:clamp(1.4rem,3vw,1.9rem);line-height:1.15;margin-bottom:8px}
+.tour-info p{color:var(--muted);margin-bottom:20px;max-width:46ch}
+.btn-yt{background:#ff0000;color:#fff}
+@media(max-width:760px){
+  .tour-card{grid-template-columns:1fr;padding:18px;gap:20px}
+  .tour-thumb{max-width:260px;margin:0 auto;max-height:none}
+  .tour-info{text-align:center}
+  .tour-info p{margin-left:auto;margin-right:auto}
+}
+
 /* reveal */
 .rv{opacity:0;transform:translateY(34px) scale(.97);transition:opacity .8s,transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
 .rv.in{opacity:1;transform:none}
@@ -171,6 +193,7 @@ footer a{color:var(--sun);font-weight:600;text-decoration:underline}
     <div class="logo">🏠 Rent House Dehradun</div>
     <nav>
       <a href="#photos">Photos</a>
+      <a href="#tour">House Tour</a>
       <a href="#features">Features</a>
       <a href="#location">Location</a>
       <a href="#contact">Contact</a>
@@ -225,6 +248,27 @@ footer a{color:var(--sun);font-weight:600;text-decoration:underline}
     <h2 class="rv">Photo Gallery</h2>
     <p class="sub rv">Tap any photo to view it full screen.</p>
     <div class="gallery" id="gallery"></div>
+  </div>
+</section>
+
+<section id="tour" style="padding-top:10px">
+  <div class="wrap">
+    <h2 class="rv">View House Tour</h2>
+    <p class="sub rv">Take a quick video walk through the house before you visit.</p>
+    <div class="tour-card rv">
+      <a class="tour-thumb" href="https://youtube.com/shorts/PEtJdZP3X7A?si=HMvbv_w2yHQ89bDZ" target="_blank" rel="noopener" aria-label="Watch the house tour on YouTube">
+        <img src="https://img.youtube.com/vi/PEtJdZP3X7A/hqdefault.jpg" alt="House tour video thumbnail" loading="lazy">
+        <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+      </a>
+      <div class="tour-info">
+        <h3>🎥 Walk through the 2 BHK house</h3>
+        <p>See the hall, bedrooms, kitchen, bathrooms and puja ghar in a short video tour on YouTube.</p>
+        <a class="btn btn-yt" href="https://youtube.com/shorts/PEtJdZP3X7A?si=HMvbv_w2yHQ89bDZ" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          View House Tour
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -297,3 +341,4 @@ footer a{color:var(--sun);font-weight:600;text-decoration:underline}
 <script src="script.js"></script>
 </body>
 </html>
+
